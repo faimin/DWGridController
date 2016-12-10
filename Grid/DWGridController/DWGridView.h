@@ -29,11 +29,11 @@ static inline DWPosition DWPositionMake(NSInteger row, NSInteger column);
 
 @protocol DWGridViewDataSource <NSObject>
 @required
--(NSInteger)numberOfRowsInGridView:(DWGridView *)gridView;
--(NSInteger)numberOfColumnsInGridView:(DWGridView *)gridView;
+- (NSInteger)numberOfRowsInGridView:(DWGridView *)gridView;
+- (NSInteger)numberOfColumnsInGridView:(DWGridView *)gridView;
 @optional
--(NSInteger)numberOfVisibleRowsInGridView:(DWGridView *)gridView;
--(NSInteger)numberOfVisibleColumnsInGridView:(DWGridView *)gridView;
+- (NSInteger)numberOfVisibleRowsInGridView:(DWGridView *)gridView;
+- (NSInteger)numberOfVisibleColumnsInGridView:(DWGridView *)gridView;
 @end
 
 @interface DWGridView : UIView <UIGestureRecognizerDelegate>
@@ -55,11 +55,12 @@ static inline DWPosition DWPositionMake(NSInteger row, NSInteger column);
     DWPosition _lastTouchedPosition;
 }
 
-@property (nonatomic,assign) id<DWGridViewDataSource>dataSource;
-@property (nonatomic,assign) id<DWGridViewDelegate>delegate;
+@property (nonatomic, weak) id<DWGridViewDataSource>dataSource;
+@property (nonatomic, weak) id<DWGridViewDelegate>delegate;
 
--(void)reloadData;
--(DWPosition)normalizePosition:(DWPosition)position;
--(NSArray *)visibleCells;
+- (void)reloadData;
+- (DWPosition)normalizePosition:(DWPosition)position;
+- (NSArray *)visibleCells;
+
 @end
 

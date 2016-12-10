@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "DWGridView.h"
+
 @interface DWGridViewController : UIViewController <DWGridViewDataSource, DWGridViewDelegate>
 
-@property (nonatomic, retain) DWGridView *gridView;
-@property (nonatomic, retain) NSMutableArray *cells;
+@property (nonatomic, strong) DWGridView *gridView;
+@property (nonatomic, strong) NSMutableArray *cells;
 
--(NSMutableDictionary *)cellDictionaryAtPosition:(DWPosition)position;
+- (NSMutableDictionary *)cellDictionaryAtPosition:(DWPosition)position;
+
 @end
